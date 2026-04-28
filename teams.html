@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Home | RedSec League</title>
+<title>Teams | RedSec League</title>
   <!-- SEO -->
-  <meta name="description" content="RedSec League is competitive Battlefield REDSEC. 25 squads. 8 Drops. One lobby. Tracked standings. Fixed schedule. No chaos — just competition. Season 1 is recruiting now.">
+  <meta name="description" content="25 franchises. One lobby. View every RedSec League franchise, check open slots and find your squad for Season 1.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://www.playredsec.com/">
+  <link rel="canonical" href="https://www.playredsec.com/teams.html">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="RedSec League">
-  <meta property="og:title" content="Home | RedSec League">
-  <meta property="og:description" content="RedSec League is competitive Battlefield REDSEC. 25 squads. 8 Drops. One lobby. Tracked standings. Fixed schedule. No chaos — just competition. Season 1 is recruiting now.">
-  <meta property="og:url" content="https://www.playredsec.com/">
+  <meta property="og:title" content="Teams | RedSec League">
+  <meta property="og:description" content="25 franchises. One lobby. View every RedSec League franchise, check open slots and find your squad for Season 1.">
+  <meta property="og:url" content="https://www.playredsec.com/teams.html">
   <meta property="og:image" content="https://www.playredsec.com/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -22,8 +22,8 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@playredsec">
-  <meta name="twitter:title" content="Home | RedSec League">
-  <meta name="twitter:description" content="RedSec League is competitive Battlefield REDSEC. 25 squads. 8 Drops. One lobby. Tracked standings. Fixed schedule. No chaos — just competition. Season 1 is recruiting now.">
+  <meta name="twitter:title" content="Teams | RedSec League">
+  <meta name="twitter:description" content="25 franchises. One lobby. View every RedSec League franchise, check open slots and find your squad for Season 1.">
   <meta name="twitter:image" content="https://www.playredsec.com/og-image.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -196,38 +196,34 @@
   }
 
   .hero-eyebrow {
-    position: absolute;
-    top: 1.25rem;
-    left: 2rem;
     display: inline-flex;
     align-items: center;
     gap: 8px;
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.875rem;
+    font-size: 0.8rem;
     font-weight: 600;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: #9AA0AD;
-    border: 1px solid rgba(255,255,255,0.1);
+    color: var(--red);
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(200,16,46,0.3);
     padding: 0.3rem 0.75rem;
     border-radius: 2px;
-    z-index: 3;
   }
 
   .hero-eyebrow::before {
     content: '';
     display: block;
-    width: 7px;
-    height: 7px;
-    background: #22C55E;
+    width: 6px;
+    height: 6px;
+    background: var(--red);
     border-radius: 50%;
-    animation: pulse 1.8s ease-in-out infinite;
-    flex-shrink: 0;
+    animation: pulse 2s infinite;
   }
 
   @keyframes pulse {
-    0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(34,197,94,0.5); }
-    50% { opacity: 0.6; box-shadow: 0 0 0 4px rgba(34,197,94,0); }
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
   }
 
   .hero-title {
@@ -240,8 +236,7 @@
     margin-bottom: 1.5rem;
   }
 
-  .hero-title { color: var(--text); }
-  .hero-title .line-red { color: var(--red); display: inline; }
+  .hero-title .line-red { color: var(--red); display: block; }
 
   .hero-subtitle {
     font-size: 1.1rem;
@@ -296,37 +291,18 @@
 
   .hero-stats {
     display: flex;
-    gap: 0;
+    gap: 3rem;
     margin-top: 4rem;
     padding-top: 2rem;
     border-top: 1px solid var(--border);
-    justify-content: space-between;
-    width: 100%;
-    max-width: 1100px;
+    justify-content: center;
   }
-
-  .hero-stats > div {
-    flex: 1;
-    text-align: center;
-    padding: 1.75rem 0.5rem;
-    border-right: 1px solid var(--border);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    min-height: 110px;
-  }
-
-  .hero-stats > div:last-child { border-right: none; }
 
   .hero-stat-num {
     font-family: 'Barlow Condensed', sans-serif;
     font-size: 2rem;
     font-weight: 800;
     color: var(--red);
-    letter-spacing: -0.02em;
-    line-height: 1;
-    margin-bottom: 0.75rem;
   }
 
   .hero-stat-label {
@@ -377,29 +353,12 @@
 
   /* TEAMS */
   .teams-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1px;
-    background: var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 0;
     border: 1px solid var(--border);
     border-radius: 6px;
     overflow: hidden;
-  }
-
-  .team-card {
-    background: var(--bg2);
-    padding: 1.75rem;
-    transition: background 0.2s;
-    position: relative;
-  }
-
-  .team-card:hover { background: var(--surface); }
-
-  .team-card-top {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1rem;
   }
 
   .team-badge {
@@ -415,55 +374,6 @@
     letter-spacing: 0.05em;
     flex-shrink: 0;
   }
-
-  .team-name {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1.1rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-
-  .team-tag {
-    font-size: 0.75rem;
-    color: var(--text3);
-    font-weight: 400;
-    text-transform: none;
-    letter-spacing: 0;
-    display: block;
-    margin-top: 2px;
-  }
-
-  .team-record {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    padding-top: 1rem;
-    border-top: 1px solid var(--border);
-  }
-
-  .team-stat {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .team-stat-num {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1.25rem;
-    font-weight: 700;
-  }
-
-  .team-stat-label {
-    font-size: 0.75rem;
-    color: var(--text3);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-  }
-
-  .win-num { color: #4ADE80; }
-  .loss-num { color: var(--red); }
 
   /* STANDINGS */
   .standings-table {
@@ -783,56 +693,6 @@
   .footer-links a:hover { color: var(--text2); }
 
   /* PLAYER ROSTER */
-  .team-squad {
-    margin-top: 1rem;
-    padding-top: 1rem;
-    border-top: 1px solid var(--border);
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .squad-label {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--text3);
-    margin-bottom: 4px;
-  }
-
-  .player-slot {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 0.4rem 0.6rem;
-    background: var(--bg3);
-    border-radius: 3px;
-    border: 1px solid var(--border);
-  }
-
-  .player-num {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: var(--text3);
-    min-width: 16px;
-    text-align: center;
-  }
-
-  .player-name {
-    font-size: 0.85rem;
-    color: var(--text2);
-    font-weight: 500;
-  }
-
-  .player-name.empty {
-    color: var(--text3);
-    font-style: italic;
-    font-size: 0.8rem;
-    font-weight: 400;
-  }
 
   /* Team color helpers */
   .tc-red { background: rgba(200,16,46,0.18); color: #F87171; }
@@ -910,170 +770,6 @@
     text-transform: uppercase;
     letter-spacing: 0.04em;
   }
-
-  .about-cta-bar {
-    margin-top: 2.5rem;
-    padding: 2rem;
-    background: var(--surface);
-    border: 1px solid var(--border2);
-    border-radius: 6px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.25rem;
-  }
-
-  .about-cta-text {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1.1rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--text2);
-  }
-
-  /* ABOUT — split layout */
-  .about-split {
-    display: grid;
-    grid-template-columns: 1fr 1.6fr;
-    gap: 4rem;
-    align-items: start;
-    margin-bottom: 3rem;
-  }
-
-  .about-headline {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: clamp(2.4rem, 5vw, 3.5rem);
-    font-weight: 800;
-    text-transform: uppercase;
-    line-height: 1;
-    margin: 1rem 0;
-  }
-
-  .about-lead {
-    font-size: 1rem;
-    color: var(--text2);
-    line-height: 1.7;
-    margin-top: 1rem;
-  }
-
-  .about-right {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .about-statement {
-    display: grid;
-    grid-template-columns: 40px 1fr;
-    gap: 1.25rem;
-    padding: 1.75rem 0;
-    border-top: 1px solid var(--border);
-  }
-
-  .about-statement:last-child { border-bottom: 1px solid var(--border); }
-
-  .about-statement-num {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.875rem;
-    font-weight: 700;
-    color: var(--red);
-    letter-spacing: 0.1em;
-    padding-top: 3px;
-  }
-
-  .about-statement-title {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1.1rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--text);
-    margin-bottom: 0.5rem;
-  }
-
-  .about-statement-text {
-    font-size: 0.95rem;
-    color: var(--text2);
-    line-height: 1.7;
-  }
-
-  /* FRANCHISE */
-  .franchise-wrap {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-  }
-
-  .franchise-card {
-    background: var(--bg2);
-    border: 1px solid var(--border2);
-    border-radius: 6px;
-    padding: 1.75rem;
-  }
-
-  .franchise-card-label {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--red);
-    margin-bottom: 1.25rem;
-  }
-
-  .franchise-slot-list {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .franchise-slot {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 0.5rem 0.75rem;
-    border-radius: 3px;
-    border: 1px solid var(--border);
-  }
-
-  .franchise-slot.taken { background: var(--bg3); }
-  .franchise-slot.open  { background: transparent; border-style: dashed; }
-
-  .slot-tag {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.75rem;
-    font-weight: 800;
-    color: var(--text3);
-    min-width: 28px;
-  }
-
-  .slot-name {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--text2);
-    flex: 1;
-  }
-
-  .franchise-slot.open .slot-name { color: var(--text3); font-style: italic; }
-
-  .slot-status {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding: 0.2rem 0.5rem;
-    border-radius: 2px;
-  }
-
-  .status-taken { background: rgba(200,16,46,0.12); color: var(--red-light); }
-  .status-open  { background: rgba(74,222,128,0.1); color: #4ADE80; border: 1px solid rgba(74,222,128,0.2); }
 
 
 
@@ -1164,9 +860,6 @@
     /* Sections */
     section { padding: 3rem 1.25rem; }
 
-    /* Teams grid */
-    .teams-grid { grid-template-columns: 1fr; }
-
     /* Standings table */
     .standings-table { font-size: 0.78rem; }
     .standings-table thead th { padding: 0 0.5rem 0.75rem; font-size: 0.75rem; }
@@ -1186,9 +879,8 @@
     /* Rules grid */
     .rules-grid { grid-template-columns: 1fr; }
 
-    /* About split */
-    .about-split { grid-template-columns: 1fr; gap: 2rem; }
-    .about-headline { font-size: 2.2rem; }
+    /* About grid */
+    .about-grid { grid-template-columns: 1fr; }
 
     /* Franchise wrap */
     .franchise-wrap { grid-template-columns: 1fr; gap: 2rem; }
@@ -1209,7 +901,32 @@
   @media (max-width: 480px) {
     .hero-title { font-size: clamp(2.4rem, 12vw, 3.5rem); }
     .hero-stat-num { font-size: 1.3rem; }
-    .team-record { grid-template-columns: repeat(4, 1fr); }
+  }
+
+
+  /* DRAFT BANNER */
+  .draft-banner {
+    background: rgba(217,119,6,0.12);
+    border-bottom: 1px solid rgba(217,119,6,0.3);
+    padding: 0.6rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+    color: #FCD34D;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+
+  .draft-banner-icon {
+    font-size: 0.875rem;
+    flex-shrink: 0;
+  }
+
+  .draft-banner-text {
+    color: #FCD34D;
+    opacity: 0.9;
   }
 
 
@@ -1237,23 +954,50 @@
   /* ACTIVE NAV CLASS */
   .nav-active { color: var(--text) !important; }
 
-</style>
 
-  <!-- Organization Schema -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SportsOrganization",
-    "name": "RedSec League",
-    "url": "https://www.playredsec.com",
-    "logo": "https://www.playredsec.com/og-image.jpg",
-    "description": "RedSec League is competitive Battlefield REDSEC. 25 squads. 8 Drops. One lobby.",
-    "sport": "Esports",
-    "sameAs": [
-      "https://discord.gg/2AYuV8aDt8"
-    ]
+  .team-card-wrap {
+    text-decoration: none;
+    color: inherit;
+    display: block;
   }
-  </script>
+  .team-card-wrap:last-child .team-card { border-bottom: none; }
+  .team-card-wrap:hover .team-card { background: var(--surface); }
+  .team-card {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1rem 1.25rem;
+    background: var(--bg2);
+    border-bottom: 1px solid var(--border);
+    transition: background 0.15s;
+  }
+  .team-name {
+    flex: 1;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .team-status {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    flex-shrink: 0;
+  }
+  .team-status.open { color: #4ADE80; }
+  .team-status.full { color: #F59E0B; }
+  .team-chevron {
+    font-size: 1.1rem;
+    color: var(--text3);
+    flex-shrink: 0;
+    margin-left: 4px;
+  }
+
+</style>
 </head>
 <body>
 
@@ -1261,8 +1005,8 @@
 <nav>
   <a href="index.html" class="nav-logo">RED<span class="logo-sec">SEC</span> LEAGUE</a>
   <ul class="nav-links">
-    <li><a href="index.html" class="nav-active">Home</a></li>
-    <li><a href="teams.html">Teams</a></li>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="teams.html" class="nav-active">Teams</a></li>
     <li><a href="standings.html">Standings</a></li>
     <li><a href="schedule.html">Schedule</a></li>
     <li><a href="rules.html">Rules</a></li>
@@ -1274,10 +1018,16 @@
   </button>
 </nav>
 
+<!-- DRAFT BANNER -->
+<div class="draft-banner">
+  <span class="draft-banner-icon">⚠</span>
+  <span class="draft-banner-text">Team names and squad rosters are subject to change. Final rosters will be confirmed before Season 1 begins.</span>
+</div>
+
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
-  <a href="index.html" class="nav-active">Home</a>
-  <a href="teams.html">Teams</a>
+  <a href="index.html">Home</a>
+  <a href="teams.html" class="nav-active">Teams</a>
   <a href="standings.html">Standings</a>
   <a href="schedule.html">Schedule</a>
   <a href="rules.html">Rules</a>
@@ -1302,83 +1052,216 @@
   });
 </script>
 
-<!-- HERO -->
-<div id="home" style="position: relative; min-height: 92vh; display: flex; align-items: center; overflow: hidden; background: var(--bg);">
-  <div class="hero-eyebrow">Season 1 — Now Recruiting</div>
-  <div class="hero-grid-bg"></div>
-  <div class="hero-glow"></div>
-  <div class="hero-content">
-    <h1 class="hero-title">
-      RED<span class="line-red">SEC</span>
-      League
-    </h1>
-    <p class="hero-subtitle">Season 1 is recruiting now. 25 squads. 8 Drops. One champion.</p>
-    <div class="hero-actions">
-      <a href="#about" class="btn-primary">About the League</a>
-      <a href="schedule.html" class="btn-ghost">View Schedule</a>
-    </div>
-    <div class="hero-stats">
-      <div>
-        <div class="hero-stat-num">25</div>
-        <div class="hero-stat-label">Teams</div>
-      </div>
-      <div>
-        <div class="hero-stat-num">0 / 8</div>
-        <div class="hero-stat-label">Drops</div>
-      </div>
-      <div>
-        <div class="hero-stat-num">S1</div>
-        <div class="hero-stat-label">Current Season</div>
-      </div>
-      <div>
-        <div class="hero-stat-num">PC · PS · XB</div>
-        <div class="hero-stat-label">Platforms</div>
-      </div>
-    </div>
+<!-- TEAMS -->
+<section id="teams">
+  <div class="section-header">
+    <div class="section-label">Participants</div>
+    <h2 class="section-title">Teams</h2>
   </div>
-</div>
+  <p style="font-size:0.8rem;color:var(--text3);margin-bottom:1.5rem;">Click any franchise to view their full profile and drop history. Open slots are available for registration.</p>
+  <div class="teams-grid">
 
-<div class="section-divider"></div>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="about-split">
-    <div class="about-left">
-      <div class="section-label">About the League</div>
-      <h2 class="about-headline">This is RED<span style="color:var(--red);">SEC</span> LEAGUE.</h2>
-    </div>
-    <div class="about-right">
-      <div class="about-statement">
-        <div class="about-statement-num">01</div>
-        <div class="about-statement-body">
-          <div class="about-statement-title">For players who are done with random lobbies</div>
-          <p class="about-statement-text">You queue, you compete, nothing carries over. RedSec League changes that. Every Drop is tracked. Every kill counts toward your standing. Every week you show up against the same 24 squads who are just as serious as you are.</p>
-        </div>
+    <a href="teams/atlanta_terminus.html" class="team-card-wrap">
+      <div class="team-card">
+        <div class="team-badge tc-purple">ATT</div>
+        <div class="team-name">Atlanta Terminus</div>
+        <div class="team-status open">Open</div>
+        <div class="team-chevron">›</div>
       </div>
-      <div class="about-statement">
-        <div class="about-statement-num">02</div>
-        <div class="about-statement-body">
-          <div class="about-statement-title">A real league. Not a Discord tournament</div>
-          <p class="about-statement-text">25 squads. Tracked standings. A fixed weekly schedule that doesn't move. Accountable leadership that keeps it running. This is organized competition built to last — not a one-off event that disappears after the weekend.</p>
-        </div>
+    </a>
+    <a href="teams/baltimore_sentinel.html" class="team-card-wrap">
+      <div class="team-card">
+        <div class="team-badge tc-cyan">BSN</div>
+        <div class="team-name">Baltimore Sentinel</div>
+        <div class="team-status open">Open</div>
+        <div class="team-chevron">›</div>
       </div>
-      <div class="about-statement">
-        <div class="about-statement-num">03</div>
-        <div class="about-statement-body">
-          <div class="about-statement-title">The community builds itself</div>
-          <p class="about-statement-text">By Drop 4 you will know who your rivals are. By the Final Drop you will have a history with them. That is what RedSec League is building — not just a season, but a competitive community with memory, identity and stakes that matter.</p>
-        </div>
+    </a>
+    <a href="teams/boston_ironsides.html" class="team-card-wrap">
+      <div class="team-card">
+        <div class="team-badge tc-green">BIS</div>
+        <div class="team-name">Boston Ironsides</div>
+        <div class="team-status open">Open</div>
+        <div class="team-chevron">›</div>
       </div>
-    </div>
-  </div>
-
-  <div class="about-cta-bar">
-    <p class="about-cta-text">Season 1 is underway. 25 squads. 8 Drops. One champion.</p>
-    <div style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;">
-      <a href="teams.html" class="btn-primary">View Teams</a>
-      <a href="schedule.html" class="btn-ghost">See Schedule</a>
-      <a href="join.html" class="btn-ghost">Join the League</a>
-    </div>
+    </a>
+    <a href="teams/chicago_outfit.html" class="team-card-wrap">
+      <div class="team-card">
+        <div class="team-badge tc-amber">COF</div>
+        <div class="team-name">Chicago Outfit</div>
+        <div class="team-status open">Open</div>
+        <div class="team-chevron">›</div>
+      </div>
+    </a>
+    <a href="teams/dallas_pegasus.html" class="team-card-wrap">
+      <div class="team-card">
+        <div class="team-badge tc-red">DPG</div>
+        <div class="team-name">Dallas Pegasus</div>
+        <div class="team-status open">Open</div>
+        <div class="team-chevron">›</div>
+      </div>
+    </a>
+    <a href="teams/denver_rampart.html" class="team-card-wrap">
+      <div class="team-card">
+        <div class="team-badge tc-amber">DRP</div>
+        <div class="team-name">Denver Rampart</div>
+        <div class="team-status open">Open</div>
+        <div class="team-chevron">›</div>
+      </div>
+    </a>
+    <a href="teams/detroit_forge.html" class="team-card-wrap">
+      <div class="team-card">
+        <div class="team-badge tc-red">DFG</div>
+        <div class="team-name">Detroit Forge</div>
+        <div class="team-status open">Open</div>
+        <div class="team-chevron">›</div>
+      </div>
+    </a>
+    <a href="teams/houston_command.html" class="team-card-wrap">
+      <div class="team-card">
+        <div class="team-badge tc-green">HCM</div>
+        <div class="team-name">Houston Command</div>
+        <div class="team-status open">Open</div>
+        <div class="team-chevron">›</div>
+      </div>
+    </a>
+    <a href="teams/lasvegas_deadfall.html" class="team-card-wrap">
+      <div class="team-card">
+        <div class="team-badge tc-purple">LVD</div>
+        <div class="team-name">Las Vegas Deadfall</div>
+        <div class="team-status open">Open</div>
+        <div class="team-chevron">›</div>
+      </div>
+    </a>
+    <a href="teams/losangeles_fault.html" class="team-card-wrap">
+      <div class="team-card">
+        <div class="team-badge tc-blue">LAF</div>
+        <div class="team-name">Los Angeles Fault</div>
+        <div class="team-status open">Open</div>
+        <div class="team-chevron">›</div>
+      </div>
+    </a>
+    <a href="teams/mexicocity_muertos.html" class="team-card-wrap">
+      <div class="team-card">
+        <div class="team-badge tc-red">MCM</div>
+        <div class="team-name">Mexico City Muertos</div>
+        <div class="team-status open">Open</div>
+        <div class="team-chevron">›</div>
+      </div>
+    </a>
+    <a href="teams/miami_cipher.html" class="team-card-wrap">
+      <div class="team-card">
+        <div class="team-badge tc-blue">MCR</div>
+        <div class="team-name">Miami Cipher</div>
+        <div class="team-status open">Open</div>
+        <div class="team-chevron">›</div>
+      </div>
+    </a>
+    <a href="teams/minneapolis_sovereign.html" class="team-card-wrap">
+      <div class="team-card">
+        <div class="team-badge tc-green">MSV</div>
+        <div class="team-name">Minneapolis Sovereign</div>
+        <div class="team-status open">Open</div>
+        <div class="team-chevron">›</div>
+      </div>
+    </a>
+    <a href="teams/nashville_dominion.html" class="team-card-wrap">
+      <div class="team-card">
+        <div class="team-badge tc-purple">NDM</div>
+        <div class="team-name">Nashville Dominion</div>
+        <div class="team-status open">Open</div>
+        <div class="team-chevron">›</div>
+      </div>
+    </a>
+    <a href="teams/neworleans_revenant.html" class="team-card-wrap">
+      <div class="team-card">
+        <div class="team-badge tc-blue">NOR</div>
+        <div class="team-name">New Orleans Revenant</div>
+        <div class="team-status open">Open</div>
+        <div class="team-chevron">›</div>
+      </div>
+    </a>
+    <a href="teams/newyork_empire.html" class="team-card-wrap">
+      <div class="team-card">
+        <div class="team-badge tc-red">NYE</div>
+        <div class="team-name">New York Empire</div>
+        <div class="team-status open">Open</div>
+        <div class="team-chevron">›</div>
+      </div>
+    </a>
+    <a href="teams/philadelphia_legion.html" class="team-card-wrap">
+      <div class="team-card">
+        <div class="team-badge tc-green">PLG</div>
+        <div class="team-name">Philadelphia Legion</div>
+        <div class="team-status open">Open</div>
+        <div class="team-chevron">›</div>
+      </div>
+    </a>
+    <a href="teams/phoenix_ember.html" class="team-card-wrap">
+      <div class="team-card">
+        <div class="team-badge tc-amber">PEM</div>
+        <div class="team-name">Phoenix Ember</div>
+        <div class="team-status open">Open</div>
+        <div class="team-chevron">›</div>
+      </div>
+    </a>
+    <a href="teams/pittsburgh_crucible.html" class="team-card-wrap">
+      <div class="team-card">
+        <div class="team-badge tc-purple">PCR</div>
+        <div class="team-name">Pittsburgh Crucible</div>
+        <div class="team-status open">Open</div>
+        <div class="team-chevron">›</div>
+      </div>
+    </a>
+    <a href="teams/sanantonio_vaquero.html" class="team-card-wrap">
+      <div class="team-card">
+        <div class="team-badge tc-cyan">SAV</div>
+        <div class="team-name">San Antonio Vaquero</div>
+        <div class="team-status open">Open</div>
+        <div class="team-chevron">›</div>
+      </div>
+    </a>
+    <a href="teams/sandiego_abyss.html" class="team-card-wrap">
+      <div class="team-card">
+        <div class="team-badge tc-red">SDA</div>
+        <div class="team-name">San Diego Abyss</div>
+        <div class="team-status open">Open</div>
+        <div class="team-chevron">›</div>
+      </div>
+    </a>
+    <a href="teams/sanfrancisco_presidio.html" class="team-card-wrap">
+      <div class="team-card">
+        <div class="team-badge tc-cyan">SFP</div>
+        <div class="team-name">San Francisco Presidio</div>
+        <div class="team-status open">Open</div>
+        <div class="team-chevron">›</div>
+      </div>
+    </a>
+    <a href="teams/seattle_shroud.html" class="team-card-wrap">
+      <div class="team-card">
+        <div class="team-badge tc-cyan">SSR</div>
+        <div class="team-name">Seattle Shroud</div>
+        <div class="team-status open">Open</div>
+        <div class="team-chevron">›</div>
+      </div>
+    </a>
+    <a href="teams/toronto_exile.html" class="team-card-wrap">
+      <div class="team-card">
+        <div class="team-badge tc-amber">TEX</div>
+        <div class="team-name">Toronto Exile</div>
+        <div class="team-status open">Open</div>
+        <div class="team-chevron">›</div>
+      </div>
+    </a>
+    <a href="teams/washington_redacted.html" class="team-card-wrap">
+      <div class="team-card">
+        <div class="team-badge tc-blue">WRD</div>
+        <div class="team-name">Washington Redacted</div>
+        <div class="team-status open">Open</div>
+        <div class="team-chevron">›</div>
+      </div>
+    </a>
+  
   </div>
 </section>
 
@@ -1387,8 +1270,8 @@
 <footer>
   <div class="footer-brand">RED<span class="logo-sec">SEC</span> LEAGUE &copy; 2026</div>
   <div class="footer-links">
-    <a href="index.html" class="nav-active">Home</a>
-    <a href="teams.html">Teams</a>
+    <a href="index.html">Home</a>
+    <a href="teams.html" class="nav-active">Teams</a>
     <a href="standings.html">Standings</a>
     <a href="schedule.html">Schedule</a>
     <a href="rules.html">Rules</a>

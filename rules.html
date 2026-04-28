@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Home | RedSec League</title>
+<title>Rules | RedSec League</title>
   <!-- SEO -->
-  <meta name="description" content="RedSec League is competitive Battlefield REDSEC. 25 squads. 8 Drops. One lobby. Tracked standings. Fixed schedule. No chaos — just competition. Season 1 is recruiting now.">
+  <meta name="description" content="Official RedSec League rulebook. Match format, scoring system, squad registration, conduct, weapon restrictions and season format.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://www.playredsec.com/">
+  <link rel="canonical" href="https://www.playredsec.com/rules.html">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="RedSec League">
-  <meta property="og:title" content="Home | RedSec League">
-  <meta property="og:description" content="RedSec League is competitive Battlefield REDSEC. 25 squads. 8 Drops. One lobby. Tracked standings. Fixed schedule. No chaos — just competition. Season 1 is recruiting now.">
-  <meta property="og:url" content="https://www.playredsec.com/">
+  <meta property="og:title" content="Rules | RedSec League">
+  <meta property="og:description" content="Official RedSec League rulebook. Match format, scoring system, squad registration, conduct, weapon restrictions and season format.">
+  <meta property="og:url" content="https://www.playredsec.com/rules.html">
   <meta property="og:image" content="https://www.playredsec.com/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -22,8 +22,8 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@playredsec">
-  <meta name="twitter:title" content="Home | RedSec League">
-  <meta name="twitter:description" content="RedSec League is competitive Battlefield REDSEC. 25 squads. 8 Drops. One lobby. Tracked standings. Fixed schedule. No chaos — just competition. Season 1 is recruiting now.">
+  <meta name="twitter:title" content="Rules | RedSec League">
+  <meta name="twitter:description" content="Official RedSec League rulebook. Match format, scoring system, squad registration, conduct, weapon restrictions and season format.">
   <meta name="twitter:image" content="https://www.playredsec.com/og-image.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -196,38 +196,34 @@
   }
 
   .hero-eyebrow {
-    position: absolute;
-    top: 1.25rem;
-    left: 2rem;
     display: inline-flex;
     align-items: center;
     gap: 8px;
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.875rem;
+    font-size: 0.8rem;
     font-weight: 600;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: #9AA0AD;
-    border: 1px solid rgba(255,255,255,0.1);
+    color: var(--red);
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(200,16,46,0.3);
     padding: 0.3rem 0.75rem;
     border-radius: 2px;
-    z-index: 3;
   }
 
   .hero-eyebrow::before {
     content: '';
     display: block;
-    width: 7px;
-    height: 7px;
-    background: #22C55E;
+    width: 6px;
+    height: 6px;
+    background: var(--red);
     border-radius: 50%;
-    animation: pulse 1.8s ease-in-out infinite;
-    flex-shrink: 0;
+    animation: pulse 2s infinite;
   }
 
   @keyframes pulse {
-    0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(34,197,94,0.5); }
-    50% { opacity: 0.6; box-shadow: 0 0 0 4px rgba(34,197,94,0); }
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
   }
 
   .hero-title {
@@ -240,8 +236,7 @@
     margin-bottom: 1.5rem;
   }
 
-  .hero-title { color: var(--text); }
-  .hero-title .line-red { color: var(--red); display: inline; }
+  .hero-title .line-red { color: var(--red); display: block; }
 
   .hero-subtitle {
     font-size: 1.1rem;
@@ -296,37 +291,18 @@
 
   .hero-stats {
     display: flex;
-    gap: 0;
+    gap: 3rem;
     margin-top: 4rem;
     padding-top: 2rem;
     border-top: 1px solid var(--border);
-    justify-content: space-between;
-    width: 100%;
-    max-width: 1100px;
+    justify-content: center;
   }
-
-  .hero-stats > div {
-    flex: 1;
-    text-align: center;
-    padding: 1.75rem 0.5rem;
-    border-right: 1px solid var(--border);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    min-height: 110px;
-  }
-
-  .hero-stats > div:last-child { border-right: none; }
 
   .hero-stat-num {
     font-family: 'Barlow Condensed', sans-serif;
     font-size: 2rem;
     font-weight: 800;
     color: var(--red);
-    letter-spacing: -0.02em;
-    line-height: 1;
-    margin-bottom: 0.75rem;
   }
 
   .hero-stat-label {
@@ -435,18 +411,14 @@
   }
 
   .team-record {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
+    gap: 1.5rem;
     padding-top: 1rem;
     border-top: 1px solid var(--border);
   }
 
   .team-stat {
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
   }
 
   .team-stat-num {
@@ -701,7 +673,7 @@
 
   .rule-block-title {
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.08em;
@@ -732,7 +704,7 @@
   }
 
   .rule-block ul li {
-    font-size: 0.875rem;
+    font-size: 0.95rem;
     color: var(--text2);
     padding-left: 1rem;
     position: relative;
@@ -911,170 +883,6 @@
     letter-spacing: 0.04em;
   }
 
-  .about-cta-bar {
-    margin-top: 2.5rem;
-    padding: 2rem;
-    background: var(--surface);
-    border: 1px solid var(--border2);
-    border-radius: 6px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.25rem;
-  }
-
-  .about-cta-text {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1.1rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--text2);
-  }
-
-  /* ABOUT — split layout */
-  .about-split {
-    display: grid;
-    grid-template-columns: 1fr 1.6fr;
-    gap: 4rem;
-    align-items: start;
-    margin-bottom: 3rem;
-  }
-
-  .about-headline {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: clamp(2.4rem, 5vw, 3.5rem);
-    font-weight: 800;
-    text-transform: uppercase;
-    line-height: 1;
-    margin: 1rem 0;
-  }
-
-  .about-lead {
-    font-size: 1rem;
-    color: var(--text2);
-    line-height: 1.7;
-    margin-top: 1rem;
-  }
-
-  .about-right {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .about-statement {
-    display: grid;
-    grid-template-columns: 40px 1fr;
-    gap: 1.25rem;
-    padding: 1.75rem 0;
-    border-top: 1px solid var(--border);
-  }
-
-  .about-statement:last-child { border-bottom: 1px solid var(--border); }
-
-  .about-statement-num {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.875rem;
-    font-weight: 700;
-    color: var(--red);
-    letter-spacing: 0.1em;
-    padding-top: 3px;
-  }
-
-  .about-statement-title {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1.1rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--text);
-    margin-bottom: 0.5rem;
-  }
-
-  .about-statement-text {
-    font-size: 0.95rem;
-    color: var(--text2);
-    line-height: 1.7;
-  }
-
-  /* FRANCHISE */
-  .franchise-wrap {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-  }
-
-  .franchise-card {
-    background: var(--bg2);
-    border: 1px solid var(--border2);
-    border-radius: 6px;
-    padding: 1.75rem;
-  }
-
-  .franchise-card-label {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--red);
-    margin-bottom: 1.25rem;
-  }
-
-  .franchise-slot-list {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .franchise-slot {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 0.5rem 0.75rem;
-    border-radius: 3px;
-    border: 1px solid var(--border);
-  }
-
-  .franchise-slot.taken { background: var(--bg3); }
-  .franchise-slot.open  { background: transparent; border-style: dashed; }
-
-  .slot-tag {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.75rem;
-    font-weight: 800;
-    color: var(--text3);
-    min-width: 28px;
-  }
-
-  .slot-name {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--text2);
-    flex: 1;
-  }
-
-  .franchise-slot.open .slot-name { color: var(--text3); font-style: italic; }
-
-  .slot-status {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding: 0.2rem 0.5rem;
-    border-radius: 2px;
-  }
-
-  .status-taken { background: rgba(200,16,46,0.12); color: var(--red-light); }
-  .status-open  { background: rgba(74,222,128,0.1); color: #4ADE80; border: 1px solid rgba(74,222,128,0.2); }
-
 
 
   /* ── HAMBURGER & MOBILE NAV ── */
@@ -1186,9 +994,8 @@
     /* Rules grid */
     .rules-grid { grid-template-columns: 1fr; }
 
-    /* About split */
-    .about-split { grid-template-columns: 1fr; gap: 2rem; }
-    .about-headline { font-size: 2.2rem; }
+    /* About grid */
+    .about-grid { grid-template-columns: 1fr; }
 
     /* Franchise wrap */
     .franchise-wrap { grid-template-columns: 1fr; gap: 2rem; }
@@ -1210,6 +1017,32 @@
     .hero-title { font-size: clamp(2.4rem, 12vw, 3.5rem); }
     .hero-stat-num { font-size: 1.3rem; }
     .team-record { grid-template-columns: repeat(4, 1fr); }
+  }
+
+
+  /* DRAFT BANNER */
+  .draft-banner {
+    background: rgba(217,119,6,0.12);
+    border-bottom: 1px solid rgba(217,119,6,0.3);
+    padding: 0.6rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+    color: #FCD34D;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+
+  .draft-banner-icon {
+    font-size: 0.875rem;
+    flex-shrink: 0;
+  }
+
+  .draft-banner-text {
+    color: #FCD34D;
+    opacity: 0.9;
   }
 
 
@@ -1238,22 +1071,6 @@
   .nav-active { color: var(--text) !important; }
 
 </style>
-
-  <!-- Organization Schema -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SportsOrganization",
-    "name": "RedSec League",
-    "url": "https://www.playredsec.com",
-    "logo": "https://www.playredsec.com/og-image.jpg",
-    "description": "RedSec League is competitive Battlefield REDSEC. 25 squads. 8 Drops. One lobby.",
-    "sport": "Esports",
-    "sameAs": [
-      "https://discord.gg/2AYuV8aDt8"
-    ]
-  }
-  </script>
 </head>
 <body>
 
@@ -1261,11 +1078,11 @@
 <nav>
   <a href="index.html" class="nav-logo">RED<span class="logo-sec">SEC</span> LEAGUE</a>
   <ul class="nav-links">
-    <li><a href="index.html" class="nav-active">Home</a></li>
+    <li><a href="index.html">Home</a></li>
     <li><a href="teams.html">Teams</a></li>
     <li><a href="standings.html">Standings</a></li>
     <li><a href="schedule.html">Schedule</a></li>
-    <li><a href="rules.html">Rules</a></li>
+    <li><a href="rules.html" class="nav-active">Rules</a></li>
     <li><a href="join.html" class="nav-join">Join</a></li>
     <li><a href="https://discord.gg/2AYuV8aDt8" class="nav-cta" target="_blank">Discord</a></li>
   </ul>
@@ -1274,13 +1091,19 @@
   </button>
 </nav>
 
+<!-- DRAFT BANNER -->
+<div class="draft-banner">
+  <span class="draft-banner-icon">⚠</span>
+  <span class="draft-banner-text">The rulebook is in draft. Final rules will be confirmed before Season 1 begins.</span>
+</div>
+
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
-  <a href="index.html" class="nav-active">Home</a>
+  <a href="index.html">Home</a>
   <a href="teams.html">Teams</a>
   <a href="standings.html">Standings</a>
   <a href="schedule.html">Schedule</a>
-  <a href="rules.html">Rules</a>
+  <a href="rules.html" class="nav-active">Rules</a>
   <a href="join.html" class="mob-join">Join the League</a>
   <a href="https://discord.gg/2AYuV8aDt8" class="mob-cta" target="_blank">Discord</a>
 </div>
@@ -1302,84 +1125,121 @@
   });
 </script>
 
-<!-- HERO -->
-<div id="home" style="position: relative; min-height: 92vh; display: flex; align-items: center; overflow: hidden; background: var(--bg);">
-  <div class="hero-eyebrow">Season 1 — Now Recruiting</div>
-  <div class="hero-grid-bg"></div>
-  <div class="hero-glow"></div>
-  <div class="hero-content">
-    <h1 class="hero-title">
-      RED<span class="line-red">SEC</span>
-      League
-    </h1>
-    <p class="hero-subtitle">Season 1 is recruiting now. 25 squads. 8 Drops. One champion.</p>
-    <div class="hero-actions">
-      <a href="#about" class="btn-primary">About the League</a>
-      <a href="schedule.html" class="btn-ghost">View Schedule</a>
-    </div>
-    <div class="hero-stats">
-      <div>
-        <div class="hero-stat-num">25</div>
-        <div class="hero-stat-label">Teams</div>
-      </div>
-      <div>
-        <div class="hero-stat-num">0 / 8</div>
-        <div class="hero-stat-label">Drops</div>
-      </div>
-      <div>
-        <div class="hero-stat-num">S1</div>
-        <div class="hero-stat-label">Current Season</div>
-      </div>
-      <div>
-        <div class="hero-stat-num">PC · PS · XB</div>
-        <div class="hero-stat-label">Platforms</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="section-divider"></div>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="about-split">
-    <div class="about-left">
-      <div class="section-label">About the League</div>
-      <h2 class="about-headline">This is RED<span style="color:var(--red);">SEC</span> LEAGUE.</h2>
-    </div>
-    <div class="about-right">
-      <div class="about-statement">
-        <div class="about-statement-num">01</div>
-        <div class="about-statement-body">
-          <div class="about-statement-title">For players who are done with random lobbies</div>
-          <p class="about-statement-text">You queue, you compete, nothing carries over. RedSec League changes that. Every Drop is tracked. Every kill counts toward your standing. Every week you show up against the same 24 squads who are just as serious as you are.</p>
-        </div>
-      </div>
-      <div class="about-statement">
-        <div class="about-statement-num">02</div>
-        <div class="about-statement-body">
-          <div class="about-statement-title">A real league. Not a Discord tournament</div>
-          <p class="about-statement-text">25 squads. Tracked standings. A fixed weekly schedule that doesn't move. Accountable leadership that keeps it running. This is organized competition built to last — not a one-off event that disappears after the weekend.</p>
-        </div>
-      </div>
-      <div class="about-statement">
-        <div class="about-statement-num">03</div>
-        <div class="about-statement-body">
-          <div class="about-statement-title">The community builds itself</div>
-          <p class="about-statement-text">By Drop 4 you will know who your rivals are. By the Final Drop you will have a history with them. That is what RedSec League is building — not just a season, but a competitive community with memory, identity and stakes that matter.</p>
-        </div>
-      </div>
-    </div>
+<!-- RULES -->
+<section id="rules">
+  <div class="section-header">
+    <div class="section-label">Rulebook</div>
+    <h2 class="section-title">League Rules</h2>
   </div>
 
-  <div class="about-cta-bar">
-    <p class="about-cta-text">Season 1 is underway. 25 squads. 8 Drops. One champion.</p>
-    <div style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;">
-      <a href="teams.html" class="btn-primary">View Teams</a>
-      <a href="schedule.html" class="btn-ghost">See Schedule</a>
-      <a href="join.html" class="btn-ghost">Join the League</a>
+  <div class="rules-grid">
+
+    <div class="rule-block">
+      <div class="rule-block-title"><div class="rule-icon">&#9670;</div>Match Format</div>
+      <ul>
+        <li>Each Drop is a single Battle Royale lobby with all 25 registered squads dropping simultaneously.</li>
+        <li>One Drop = one lobby. Drops are held on a fixed weekly schedule.</li>
+        <li>Each squad consists of exactly 4 players. Partial squads may not compete.</li>
+        <li>A minimum of 20 squads must be present for a Drop to be considered official. If fewer check in, the Drop is postponed.</li>
+        <li>Squads have a 15-minute check-in window before lobby creation. Failure to check in is a forfeit for that session.</li>
+      </ul>
     </div>
+
+    <div class="rule-block">
+      <div class="rule-block-title"><div class="rule-icon">&#9670;</div>Scoring System</div>
+      <ul>
+        <li><strong style="color:var(--text);">Placement Points</strong> are awarded per finish position: 1st = 15 pts, 2nd = 12, 3rd = 10, 4th = 8, 5th = 6, 6th = 4, 7th = 3, 8th = 2, 9th–10th = 1, 11th+ = 0.</li>
+        <li><strong style="color:var(--text);">Kill Points</strong> are awarded at 1 point per elimination. There is no kill point cap.</li>
+        <li><strong style="color:var(--text);">Total Points</strong> = Placement Points + Kill Points. This is the primary ranking metric.</li>
+        <li>Tiebreakers are resolved in order: most wins, then most top-5 finishes, then highest single-game score.</li>
+        <li>Scores must be submitted with screenshot evidence within 1 hour of Drop end.</li>
+      </ul>
+    </div>
+
+    <div class="rule-block">
+      <div class="rule-block-title"><div class="rule-icon">&#9670;</div>Squad &amp; Registration</div>
+      <ul>
+        <li>Each squad registers exactly 4 players and may designate up to 1 substitute.</li>
+        <li>All players must be registered with their in-game name before the season start date.</li>
+        <li>Squad changes are only permitted during the first two weeks of the season.</li>
+        <li>Players may only be registered to one squad. Dual registration results in disqualification for both teams.</li>
+        <li>Substitutes must be declared before lobby creation. Mid-session substitutions are not permitted.</li>
+      </ul>
+    </div>
+
+    <div class="rule-block">
+      <div class="rule-block-title"><div class="rule-icon">&#9670;</div>Conduct &amp; Fair Play</div>
+      <ul>
+        <li>Teaming with other squads — coordinating to eliminate a third squad or avoid conflict — is strictly prohibited and results in immediate disqualification from the Drop.</li>
+        <li>Cheating, hacking, or exploiting game bugs results in permanent disqualification from the league.</li>
+        <li>Unsportsmanlike conduct (stream sniping, griefing, harassment) results in a warning on first offence, then a Drop ban.</li>
+        <li>All disputes must be filed with the Command within 24 hours of the Drop, accompanied by video or screenshot evidence.</li>
+        <li>Command rulings are final.</li>
+      </ul>
+    </div>
+
+    <div class="rule-block">
+      <div class="rule-block-title"><div class="rule-icon">&#9670;</div>Drop &amp; Map Rules</div>
+      <ul>
+        <li>The map and drop zone rules for each Drop are announced 48 hours in advance.</li>
+        <li>Intentionally dropping on or camping another squad's designated drop zone during the first 60 seconds is a conduct violation.</li>
+        <li>Map pool is selected by the Command each season and may rotate between Drops.</li>
+        <li>All squads must drop within 30 seconds of the aircraft passing their zone. Stalling the drop is a violation.</li>
+      </ul>
+    </div>
+
+    <div class="rule-block">
+      <div class="rule-block-title"><div class="rule-icon">&#9670;</div>Technical Issues</div>
+      <ul>
+        <li>If a squad member disconnects within the first 2 minutes before the first zone closes, the squad may request a lobby restart. One restart per squad per session maximum.</li>
+        <li>Disconnects after the first zone closes are not grounds for a restart — the remaining squad members continue.</li>
+        <li>Server-wide crashes before 10 squads have been eliminated may result in a full Drop replay at Command discretion.</li>
+        <li>All technical disputes require video evidence submitted within 1 hour of the Drop.</li>
+      </ul>
+    </div>
+
+    <div class="rule-block">
+      <div class="rule-block-title"><div class="rule-icon">&#9670;</div>Season Format</div>
+      <ul>
+        <li>Season 1 consists of 8 weekly Drops, one per week on the same day and time each week.</li>
+        <li>All 25 squads compete in every Drop. There are no playoffs, no bracket, and no grand final — the season IS the competition.</li>
+        <li>Points accumulate across all 8 Drops. The squad with the highest cumulative Total Points after the Final Drop is the Season 1 Champion.</li>
+        <li>Tiebreakers are resolved in order: most Drop wins (1st place finishes), then most top-5 finishes, then highest single-Drop score.</li>
+        <li>The Final Drop is the Season Finale. All standings are locked and the champion is announced immediately after results are verified.</li>
+        <li>There are no make-up Drops. If a squad misses a Drop, they receive 0 points for that week.</li>
+      </ul>
+    </div>
+
+    <div class="rule-block">
+      <div class="rule-block-title"><div class="rule-icon">&#9670;</div>Platform &amp; Settings</div>
+      <ul>
+        <li>RedSec League is open to PC, PlayStation, and Xbox players.</li>
+        <li>Cross-platform lobbies are permitted. No platform-based restrictions apply to scoring.</li>
+        <li>Input device (controller vs keyboard/mouse) is unrestricted.</li>
+        <li>All in-game settings are at the player's discretion unless a specific server config is mandated by the Command.</li>
+        <li>Use of macros, scripts, or hardware that automates in-game actions is prohibited.</li>
+      </ul>
+    </div>
+
+    <div class="rule-block">
+      <div class="rule-block-title"><div class="rule-icon">&#9670;</div>Weapon Restrictions</div>
+      <ul>
+        <li>No weapon restrictions are currently in effect for Season 1. All primary weapons, secondary weapons, gadgets and throwables are permitted unless explicitly listed below.</li>
+        <li>Command reserves the right to introduce, modify or remove weapon restrictions at any time. Announcements are posted in <strong>#announcements</strong> on the RedSec League Discord with a minimum of 48 hours notice before the first affected Drop.</li>
+        <li><strong>Primary Weapons</strong> — No restrictions currently in effect.</li>
+        <li><strong>Secondary Weapons</strong> — No restrictions currently in effect.</li>
+        <li><strong>Gadgets</strong> — No restrictions currently in effect.</li>
+        <li><strong>Throwables</strong> — No restrictions currently in effect.</li>
+        <li>Use of any weapon or gadget in a manner that exploits an unintended in-game bug or glitch is prohibited regardless of restriction status and falls under Conduct &amp; Fair Play.</li>
+      </ul>
+    </div>
+
+  
+    
+
   </div>
+
+  <p style="font-size: 0.85rem; color: var(--text3);">Last updated: April 2026 &nbsp;·&nbsp; Questions? Contact the Command via Discord.</p>
 </section>
 
 
@@ -1387,11 +1247,11 @@
 <footer>
   <div class="footer-brand">RED<span class="logo-sec">SEC</span> LEAGUE &copy; 2026</div>
   <div class="footer-links">
-    <a href="index.html" class="nav-active">Home</a>
+    <a href="index.html">Home</a>
     <a href="teams.html">Teams</a>
     <a href="standings.html">Standings</a>
     <a href="schedule.html">Schedule</a>
-    <a href="rules.html">Rules</a>
+    <a href="rules.html" class="nav-active">Rules</a>
     <a href="join.html">Join</a>
   </div>
   <span style="font-size: 0.875rem; color: var(--text3);">RedSec League — Season 1</span>

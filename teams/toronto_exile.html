@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Toronto Exile | RedSec League</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ── VARIABLES ── */
+  :root {
+    --red: #C8102E;
+    --red-dark: #8B0B1F;
+    --red-light: #E8354F;
+    --bg: #0A0C0F;
+    --bg2: #111318;
+    --surface: #1E2128;
+    --surface2: #252930;
+    --border: rgba(255,255,255,0.07);
+    --border2: rgba(255,255,255,0.12);
+    --text: #F0F2F5;
+    --text2: #9AA0AD;
+    --text3: #6B7280;
+    --gold: #FCD34D;
+    --green: #4ADE80;
+    --amber: #F59E0B;
+    --purple: #A78BFA;
+    --blue: #60A5FA;
+  }
+
+  /* ── RESET ── */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 16px;
+    overflow-x: hidden;
+  }
+
+  /* ── FOCUS ── */
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--red);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(10,12,15,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border2);
+    padding: 0 2rem; height: 60px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo {
+    text-decoration: none;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 400; font-size: 1.15rem;
+    letter-spacing: 0.22em; color: var(--text); text-transform: uppercase;
+  }
+  .logo-sec { color: var(--red); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    text-decoration: none; color: var(--text2);
+    font-size: 0.875rem; font-weight: 500;
+    letter-spacing: 0.05em; text-transform: uppercase; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--text); }
+  .nav-active { color: var(--text) !important; }
+  .nav-cta {
+    background: var(--red); color: #fff !important;
+    padding: 0.4rem 1rem; border-radius: 3px;
+    font-weight: 600 !important; transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--red-light); }
+  .nav-join {
+    border: 1px solid rgba(255,255,255,0.25) !important;
+    padding: 0.3rem 0.9rem !important; border-radius: 2px;
+    color: var(--text) !important; transition: border-color 0.2s;
+  }
+  .nav-join:hover { border-color: rgba(255,255,255,0.6) !important; }
+
+  /* ── HAMBURGER ── */
+  .hamburger {
+    display: none; flex-direction: column; gap: 5px;
+    cursor: pointer; padding: 4px; background: none; border: none; z-index: 200;
+  }
+  .hamburger span {
+    display: block; width: 24px; height: 2px;
+    background: var(--text); border-radius: 2px;
+    transition: transform 0.3s, opacity 0.3s;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* ── MOBILE MENU ── */
+  .mobile-menu {
+    display: none; position: fixed;
+    top: 60px; left: 0; right: 0; bottom: 0;
+    background: rgba(10,12,15,0.98); backdrop-filter: blur(16px);
+    z-index: 150; flex-direction: column; align-items: center; justify-content: center;
+    border-top: 1px solid var(--border2);
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    width: 100%; text-align: center; padding: 1.25rem 2rem;
+    font-family: 'Barlow Condensed', sans-serif; font-size: 1.4rem;
+    font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    text-decoration: none; color: var(--text2);
+    border-bottom: 1px solid var(--border); transition: color 0.2s, background 0.2s;
+  }
+  .mobile-menu a:hover { color: var(--text); background: var(--surface); }
+  .mob-join {
+    text-align: center; padding: 1.25rem 2rem;
+    font-family: 'Barlow Condensed', sans-serif; font-size: 1.4rem;
+    font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    text-decoration: none; color: var(--text) !important;
+    border: 1px solid rgba(255,255,255,0.2) !important; border-radius: 2px;
+    margin: 0 2rem; width: calc(100% - 4rem);
+  }
+  .mob-cta {
+    margin-top: 1.5rem; background: var(--red); color: #fff !important;
+    border-radius: 3px; width: auto; padding: 0.9rem 3rem; border: none; font-size: 1.1rem;
+  }
+  .mob-cta:hover { background: var(--red-light); }
+
+  /* ── FRANCHISE HERO ── */
+  .franchise-hero {
+    position: relative; background: var(--bg2);
+    border-bottom: 1px solid var(--border2); overflow: hidden;
+  }
+  .hero-grid-bg {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(200,16,46,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(200,16,46,0.04) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+  .hero-accent {
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 3px; background: var(--red);
+  }
+  .hero-content {
+    position: relative; z-index: 2;
+    max-width: 1100px; margin: 0 auto;
+    padding: 3rem 2rem 2.5rem;
+  }
+  .franchise-badge {
+    width: 64px; height: 64px; border-radius: 6px;
+    background: rgba(180,120,10,0.2);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 800;
+    color: #FCD34D;
+    letter-spacing: 0.05em; flex-shrink: 0;
+  }
+  .hero-title-wrap {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+  .hero-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem;
+    font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--red); margin-bottom: 0.5rem;
+  }
+  .hero-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(2.8rem, 7vw, 5rem);
+    font-weight: 800; text-transform: uppercase;
+    line-height: 0.88; letter-spacing: -0.01em; margin-bottom: 0;
+  }
+  .hero-title .accent { color: var(--red); }
+  .hero-meta {
+    display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: center;
+  }
+  .hero-meta-item {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 0.875rem;
+    color: var(--text3); letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .hero-meta-item strong { color: var(--text2); font-weight: 600; }
+  .hero-status {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 0.875rem;
+    font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--green);
+  }
+
+  /* ── STATS BAR ── */
+  .stats-bar {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid var(--border2);
+  }
+  .stat-item {
+    padding: 1.5rem 1rem; text-align: center;
+    border-right: 1px solid var(--border);
+    display: flex; flex-direction: column;
+    align-items: center; gap: 0.5rem;
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 2rem; font-weight: 800; line-height: 1;
+  }
+  .stat-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase; color: var(--text3);
+  }
+
+  /* ── PAGE LAYOUT ── */
+  .page-content {
+    max-width: 1100px; margin: 0 auto;
+    padding: 3rem 2rem;
+    display: grid; grid-template-columns: 1fr 300px;
+    gap: 3rem; align-items: start;
+  }
+
+  /* ── SECTIONS ── */
+  .section-block { margin-bottom: 3rem; }
+  .section-block:last-child { margin-bottom: 0; }
+  .section-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--text3); padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border); margin-bottom: 1.25rem;
+  }
+
+  /* ── SEASON HISTORY ── */
+  .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+  .season-header {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+    padding-bottom: 0.875rem;
+    border-bottom: 1px solid var(--border);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem; font-weight: 700;
+    letter-spacing: 0.15em; text-transform: uppercase; color: var(--text3);
+  }
+
+  .season-row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+    align-items: center;
+    padding: 0.875rem 0;
+    border-bottom: 1px solid var(--border);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.95rem;
+    transition: background 0.15s;
+  }
+
+  .season-row:last-child { border-bottom: none; }
+  .season-row:hover { background: rgba(255,255,255,0.02); }
+
+  .season-label { font-weight: 700; color: var(--text); font-size: 1rem; }
+
+  .rank-pill {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 30px; height: 30px; border-radius: 3px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.875rem; font-weight: 800;
+    background: var(--surface); color: var(--text2);
+  }
+  .rank-pill.gold { background: rgba(252,211,77,0.15); color: var(--gold); }
+  .rank-pill.silver { background: rgba(209,213,219,0.15); color: #D1D5DB; }
+  .rank-pill.bronze { background: rgba(180,83,9,0.15); color: #FDBA74; }
+  .in-progress { font-size: 0.8rem; color: var(--text3); font-style: italic; }
+
+  /* ── DROP RESULTS ── */
+  .drop-header {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem; padding-bottom: 0.875rem;
+    border-bottom: 1px solid var(--border);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem; font-weight: 700;
+    letter-spacing: 0.15em; text-transform: uppercase; color: var(--text3);
+  }
+  .drop-row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem; align-items: center;
+    padding: 0.875rem 0; border-bottom: 1px solid var(--border);
+    font-family: 'Barlow Condensed', sans-serif; font-size: 0.95rem;
+    transition: background 0.15s;
+  }
+  .drop-row:last-child { border-bottom: none; }
+  .drop-row:hover { background: rgba(255,255,255,0.02); }
+  .drop-row.final {
+    border-left: 2px solid var(--red);
+    padding-left: 0.75rem; margin-left: -0.75rem;
+  }
+  .drop-label { font-weight: 700; color: var(--text); }
+  .drop-label.final-label { color: var(--red); }
+  .drop-dash { color: var(--text3); }
+  .drop-pts { font-weight: 800; color: var(--red); }
+  .drop-win { color: var(--green); font-weight: 700; }
+  .drop-top5 { color: var(--amber); font-weight: 700; }
+
+  /* ── SIDEBAR ── */
+  .sidebar-card {
+    background: var(--bg2); border: 1px solid var(--border2);
+    border-radius: 4px; overflow: hidden; margin-bottom: 1.5rem;
+  }
+  .sidebar-card:last-child { margin-bottom: 0; }
+  .sidebar-header {
+    padding: 0.875rem 1.25rem; border-bottom: 1px solid var(--border);
+    font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem;
+    font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text3);
+  }
+  .sidebar-body { padding: 1.25rem; }
+
+  /* Squad */
+  .squad-row {
+    display: flex; align-items: center; gap: 0.875rem;
+    padding: 0.75rem 0; border-bottom: 1px solid var(--border);
+  }
+  .squad-row:last-child { border-bottom: none; }
+  .squad-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.875rem; font-weight: 700; color: var(--red); min-width: 18px;
+  }
+  .squad-role {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem;
+    font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--text3); min-width: 62px;
+  }
+  .squad-name { font-size: 0.875rem; color: var(--text2); font-style: italic; }
+  .squad-name.active { color: var(--text); font-style: normal; font-weight: 500; }
+
+  /* Achievements */
+  .ach-row {
+    display: flex; align-items: center; gap: 0.875rem;
+    padding: 0.75rem 0; border-bottom: 1px solid var(--border);
+  }
+  .ach-row:last-child { border-bottom: none; }
+  .ach-icon {
+    width: 32px; height: 32px; border-radius: 3px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.875rem; flex-shrink: 0;
+  }
+  .ach-icon.gold { background: rgba(252,211,77,0.15); color: var(--gold); }
+  .ach-icon.red { background: rgba(200,16,46,0.15); color: var(--red); }
+  .ach-icon.silver { background: rgba(209,213,219,0.15); color: #D1D5DB; }
+  .ach-title {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 0.875rem;
+    font-weight: 700; color: var(--text); text-transform: uppercase; letter-spacing: 0.05em;
+  }
+  .ach-sub { font-size: 0.8rem; color: var(--text3); margin-top: 2px; }
+
+  /* Info */
+  .info-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0.6rem 0; border-bottom: 1px solid var(--border); font-size: 0.875rem;
+  }
+  .info-row:last-child { border-bottom: none; }
+  .info-key { color: var(--text3); }
+  .info-val { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; color: var(--text); font-size: 0.95rem; }
+  .info-val.green { color: var(--green); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--bg2); border-top: 1px solid var(--border);
+    padding: 2.5rem 2rem; display: flex;
+    justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 1rem; font-size: 0.875rem; color: var(--text3);
+  }
+  .footer-brand {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 400;
+    font-size: 0.9rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text2);
+  }
+  .footer-links { display: flex; gap: 1.5rem; }
+  .footer-links a {
+    color: var(--text3); text-decoration: none; transition: color 0.2s;
+    font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 500;
+  }
+  .footer-links a:hover { color: var(--text2); }
+
+  /* ── MOBILE 768px ── */
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    nav { padding: 0 1rem; }
+
+    .hero-content { padding: 2rem 1.25rem 1.75rem; }
+    .franchise-badge {
+    width: 64px; height: 64px; border-radius: 6px;
+    background: rgba(180,120,10,0.2);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 800;
+    color: #FCD34D;
+    letter-spacing: 0.05em; flex-shrink: 0;
+  }
+    .hero-title-wrap { gap: 1rem; }
+    .hero-title { font-size: clamp(2.2rem, 10vw, 3.5rem); }
+    .hero-meta { gap: 1rem; }
+    .hero-meta-item { font-size: 0.8rem; }
+
+    .stats-bar { grid-template-columns: repeat(2, 1fr); }
+    .stat-item:nth-child(2) { border-right: none; }
+    .stat-item:nth-child(3) { border-top: 1px solid var(--border); }
+    .stat-item:nth-child(4) { border-top: 1px solid var(--border); border-right: none; }
+    .stat-item { padding: 1.25rem 0.5rem; }
+    .stat-num { font-size: 1.6rem; }
+
+    .page-content { grid-template-columns: 1fr; padding: 2rem 1.25rem; gap: 2rem; }
+
+    /* Hide Kill Pts on mobile */
+    .drop-header { grid-template-columns: repeat(4, 1fr); }
+    .drop-row { grid-template-columns: repeat(4, 1fr); }
+    .drop-header > *:nth-child(4),
+    .drop-row > *:nth-child(4) { display: none; }
+
+    /* Season history mobile — equal 5 columns same as Drop Results */
+    .season-header { grid-template-columns: repeat(5, 1fr); }
+    .season-row { grid-template-columns: repeat(5, 1fr); }
+
+    footer { flex-direction: column; text-align: center; gap: 1rem; padding: 2rem 1.25rem; }
+    .footer-links { display: none; }
+  }
+
+  /* ── MOBILE 480px ── */
+  @media (max-width: 480px) {
+    .hero-title { font-size: clamp(1.9rem, 9vw, 2.8rem); }
+    .stat-num { font-size: 1.4rem; }
+    .hero-content { padding: 1.75rem 1rem 1.5rem; }
+    .page-content { padding: 1.75rem 1rem; }
+    .sidebar-body { padding: 1rem; }
+    .drop-header { grid-template-columns: repeat(4, 1fr); font-size: 0.7rem; }
+    .drop-row { grid-template-columns: repeat(4, 1fr); font-size: 0.875rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="../index.html" class="nav-logo">RED<span class="logo-sec">SEC</span> LEAGUE</a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../teams.html" class="nav-active">Teams</a></li>
+    <li><a href="../standings.html">Standings</a></li>
+    <li><a href="../schedule.html">Schedule</a></li>
+    <li><a href="../rules.html">Rules</a></li>
+    <li><a href="../join.html" class="nav-join">Join</a></li>
+    <li><a href="https://discord.gg/2AYuV8aDt8" class="nav-cta" target="_blank">Discord</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="../index.html">Home</a>
+  <a href="../teams.html">Teams</a>
+  <a href="../standings.html">Standings</a>
+  <a href="../schedule.html">Schedule</a>
+  <a href="../rules.html">Rules</a>
+  <a href="../join.html" class="mob-join">Join</a>
+  <a href="https://discord.gg/2AYuV8aDt8" class="mob-cta" target="_blank">Discord</a>
+</div>
+
+<script>
+  const btn = document.getElementById('hamburger');
+  const menu = document.getElementById('mobileMenu');
+  btn.addEventListener('click', () => {
+    btn.classList.toggle('open');
+    menu.classList.toggle('open');
+    document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+  });
+  menu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      btn.classList.remove('open');
+      menu.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+</script>
+
+<!-- FRANCHISE HERO -->
+<div class="franchise-hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-accent"></div>
+  <div class="hero-content">
+    <div class="hero-title-wrap">
+      <div class="franchise-badge">TEX</div>
+      <h1 class="hero-title">Toronto<br><span class="accent">Exile</span></h1>
+    </div>
+    <div class="hero-meta">
+      <span class="hero-meta-item">Region <strong>International</strong></span>
+    </div>
+  </div>
+  <div class="stats-bar">
+    <div class="stat-item">
+      <div class="stat-num" style="color:var(--amber);">—</div>
+      <div class="stat-label">Wins</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" style="color:var(--green);">—</div>
+      <div class="stat-label">Top 5</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" style="color:var(--red);">—</div>
+      <div class="stat-label">All-Time Pts</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" style="color:var(--purple);">—</div>
+      <div class="stat-label">Titles</div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE CONTENT -->
+<div class="page-content">
+
+  <!-- LEFT -->
+  <div>
+    <div class="section-block">
+      <div class="section-title">Season History</div>
+      <div class="season-header">
+        <div>Season</div>
+        <div>Rank</div>
+        <div>Wins</div>
+        <div>Top 5</div>
+        <div>Points</div>
+      </div>
+      <div class="season-row">
+        <div class="season-label">Season 1</div>
+        <div><span class="rank-pill">—</span></div>
+        <div style="color:var(--amber);">—</div>
+        <div style="color:var(--green);">—</div>
+        <div style="color:var(--red);font-weight:700;">—</div>
+      </div>
+    </div>
+
+    <div class="section-block">
+      <div class="section-title">Drop Results — Season 1</div>
+      <div class="drop-header">
+        <div>Drop</div>
+        <div>Placement</div>
+        <div>Plc Pts</div>
+        <div>Kill Pts</div>
+        <div>Total</div>
+      </div>
+      <div class="drop-row">
+        <div class="drop-label">Drop 1</div>
+        <div class="drop-dash">—</div>
+        <div class="drop-dash">—</div>
+        <div class="drop-dash">—</div>
+        <div class="drop-pts">—</div>
+      </div>
+      <div class="drop-row">
+        <div class="drop-label">Drop 2</div>
+        <div class="drop-dash">—</div>
+        <div class="drop-dash">—</div>
+        <div class="drop-dash">—</div>
+        <div class="drop-pts">—</div>
+      </div>
+      <div class="drop-row">
+        <div class="drop-label">Drop 3</div>
+        <div class="drop-dash">—</div>
+        <div class="drop-dash">—</div>
+        <div class="drop-dash">—</div>
+        <div class="drop-pts">—</div>
+      </div>
+      <div class="drop-row">
+        <div class="drop-label">Drop 4</div>
+        <div class="drop-dash">—</div>
+        <div class="drop-dash">—</div>
+        <div class="drop-dash">—</div>
+        <div class="drop-pts">—</div>
+      </div>
+      <div class="drop-row">
+        <div class="drop-label">Drop 5</div>
+        <div class="drop-dash">—</div>
+        <div class="drop-dash">—</div>
+        <div class="drop-dash">—</div>
+        <div class="drop-pts">—</div>
+      </div>
+      <div class="drop-row">
+        <div class="drop-label">Drop 6</div>
+        <div class="drop-dash">—</div>
+        <div class="drop-dash">—</div>
+        <div class="drop-dash">—</div>
+        <div class="drop-pts">—</div>
+      </div>
+      <div class="drop-row">
+        <div class="drop-label">Drop 7</div>
+        <div class="drop-dash">—</div>
+        <div class="drop-dash">—</div>
+        <div class="drop-dash">—</div>
+        <div class="drop-pts">—</div>
+      </div>
+      <div class="drop-row final">
+        <div class="drop-label final-label">Final Drop</div>
+        <div class="drop-dash">—</div>
+        <div class="drop-dash">—</div>
+        <div class="drop-dash">—</div>
+        <div class="drop-pts">—</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT SIDEBAR -->
+  <div>
+    <div class="sidebar-card">
+      <div class="sidebar-header">Current Squad</div>
+      <div class="sidebar-body">
+        <div class="squad-row">
+          <div class="squad-num">1</div>
+          <div class="squad-role">Captain</div>
+          <div class="squad-name">TBD</div>
+        </div>
+        <div class="squad-row">
+          <div class="squad-num">2</div>
+          <div class="squad-role">Player</div>
+          <div class="squad-name">TBD</div>
+        </div>
+        <div class="squad-row">
+          <div class="squad-num">3</div>
+          <div class="squad-role">Player</div>
+          <div class="squad-name">TBD</div>
+        </div>
+        <div class="squad-row">
+          <div class="squad-num">4</div>
+          <div class="squad-role">Player</div>
+          <div class="squad-name">TBD</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-card">
+      <div class="sidebar-header">Achievements</div>
+      <div class="sidebar-body">
+        <div class="ach-row">
+          <div class="ach-icon gold">★</div>
+          <div>
+            <div class="ach-title">Season Champion</div>
+
+          </div>
+        </div>
+        <div class="ach-row">
+          <div class="ach-icon red">▲</div>
+          <div>
+            <div class="ach-title">Drop Wins</div>
+
+          </div>
+        </div>
+        <div class="ach-row">
+          <div class="ach-icon silver">◆</div>
+          <div>
+            <div class="ach-title">Drop MVP</div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-card">
+      <div class="sidebar-header">Franchise Info</div>
+      <div class="sidebar-body">
+        <div class="info-row">
+          <span class="info-key">City</span>
+          <span class="info-val">Toronto, Canada</span>
+        </div>
+<div class="info-row">
+          <span class="info-key">Conference</span>
+          <span class="info-val">Northeast</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">RED<span class="logo-sec">SEC</span> LEAGUE &copy; 2026</div>
+  <div class="footer-links">
+    <a href="../index.html">Home</a>
+    <a href="../teams.html">Teams</a>
+    <a href="../standings.html">Standings</a>
+    <a href="../schedule.html">Schedule</a>
+    <a href="../rules.html">Rules</a>
+    <a href="../join.html">Join</a>
+  </div>
+  <span>RedSec League — Season 1</span>
+</footer>
+
+</body>
+</html>

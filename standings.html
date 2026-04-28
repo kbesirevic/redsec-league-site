@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Home | RedSec League</title>
+<title>Standings | RedSec League</title>
   <!-- SEO -->
-  <meta name="description" content="RedSec League is competitive Battlefield REDSEC. 25 squads. 8 Drops. One lobby. Tracked standings. Fixed schedule. No chaos — just competition. Season 1 is recruiting now.">
+  <meta name="description" content="Live Season 1 standings for RedSec League. Placement points, kill points and total rankings across all 25 franchises.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://www.playredsec.com/">
+  <link rel="canonical" href="https://www.playredsec.com/standings.html">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="RedSec League">
-  <meta property="og:title" content="Home | RedSec League">
-  <meta property="og:description" content="RedSec League is competitive Battlefield REDSEC. 25 squads. 8 Drops. One lobby. Tracked standings. Fixed schedule. No chaos — just competition. Season 1 is recruiting now.">
-  <meta property="og:url" content="https://www.playredsec.com/">
+  <meta property="og:title" content="Standings | RedSec League">
+  <meta property="og:description" content="Live Season 1 standings for RedSec League. Placement points, kill points and total rankings across all 25 franchises.">
+  <meta property="og:url" content="https://www.playredsec.com/standings.html">
   <meta property="og:image" content="https://www.playredsec.com/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -22,8 +22,8 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@playredsec">
-  <meta name="twitter:title" content="Home | RedSec League">
-  <meta name="twitter:description" content="RedSec League is competitive Battlefield REDSEC. 25 squads. 8 Drops. One lobby. Tracked standings. Fixed schedule. No chaos — just competition. Season 1 is recruiting now.">
+  <meta name="twitter:title" content="Standings | RedSec League">
+  <meta name="twitter:description" content="Live Season 1 standings for RedSec League. Placement points, kill points and total rankings across all 25 franchises.">
   <meta name="twitter:image" content="https://www.playredsec.com/og-image.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -196,38 +196,34 @@
   }
 
   .hero-eyebrow {
-    position: absolute;
-    top: 1.25rem;
-    left: 2rem;
     display: inline-flex;
     align-items: center;
     gap: 8px;
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.875rem;
+    font-size: 0.8rem;
     font-weight: 600;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: #9AA0AD;
-    border: 1px solid rgba(255,255,255,0.1);
+    color: var(--red);
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(200,16,46,0.3);
     padding: 0.3rem 0.75rem;
     border-radius: 2px;
-    z-index: 3;
   }
 
   .hero-eyebrow::before {
     content: '';
     display: block;
-    width: 7px;
-    height: 7px;
-    background: #22C55E;
+    width: 6px;
+    height: 6px;
+    background: var(--red);
     border-radius: 50%;
-    animation: pulse 1.8s ease-in-out infinite;
-    flex-shrink: 0;
+    animation: pulse 2s infinite;
   }
 
   @keyframes pulse {
-    0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(34,197,94,0.5); }
-    50% { opacity: 0.6; box-shadow: 0 0 0 4px rgba(34,197,94,0); }
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
   }
 
   .hero-title {
@@ -240,8 +236,7 @@
     margin-bottom: 1.5rem;
   }
 
-  .hero-title { color: var(--text); }
-  .hero-title .line-red { color: var(--red); display: inline; }
+  .hero-title .line-red { color: var(--red); display: block; }
 
   .hero-subtitle {
     font-size: 1.1rem;
@@ -296,37 +291,18 @@
 
   .hero-stats {
     display: flex;
-    gap: 0;
+    gap: 3rem;
     margin-top: 4rem;
     padding-top: 2rem;
     border-top: 1px solid var(--border);
-    justify-content: space-between;
-    width: 100%;
-    max-width: 1100px;
+    justify-content: center;
   }
-
-  .hero-stats > div {
-    flex: 1;
-    text-align: center;
-    padding: 1.75rem 0.5rem;
-    border-right: 1px solid var(--border);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    min-height: 110px;
-  }
-
-  .hero-stats > div:last-child { border-right: none; }
 
   .hero-stat-num {
     font-family: 'Barlow Condensed', sans-serif;
     font-size: 2rem;
     font-weight: 800;
     color: var(--red);
-    letter-spacing: -0.02em;
-    line-height: 1;
-    margin-bottom: 0.75rem;
   }
 
   .hero-stat-label {
@@ -435,18 +411,14 @@
   }
 
   .team-record {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
+    gap: 1.5rem;
     padding-top: 1rem;
     border-top: 1px solid var(--border);
   }
 
   .team-stat {
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
   }
 
   .team-stat-num {
@@ -783,7 +755,7 @@
   .footer-links a:hover { color: var(--text2); }
 
   /* PLAYER ROSTER */
-  .team-squad {
+  .team-roster {
     margin-top: 1rem;
     padding-top: 1rem;
     border-top: 1px solid var(--border);
@@ -792,7 +764,7 @@
     gap: 6px;
   }
 
-  .squad-label {
+  .roster-label {
     font-family: 'Barlow Condensed', sans-serif;
     font-size: 0.75rem;
     font-weight: 600;
@@ -911,170 +883,6 @@
     letter-spacing: 0.04em;
   }
 
-  .about-cta-bar {
-    margin-top: 2.5rem;
-    padding: 2rem;
-    background: var(--surface);
-    border: 1px solid var(--border2);
-    border-radius: 6px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.25rem;
-  }
-
-  .about-cta-text {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1.1rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--text2);
-  }
-
-  /* ABOUT — split layout */
-  .about-split {
-    display: grid;
-    grid-template-columns: 1fr 1.6fr;
-    gap: 4rem;
-    align-items: start;
-    margin-bottom: 3rem;
-  }
-
-  .about-headline {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: clamp(2.4rem, 5vw, 3.5rem);
-    font-weight: 800;
-    text-transform: uppercase;
-    line-height: 1;
-    margin: 1rem 0;
-  }
-
-  .about-lead {
-    font-size: 1rem;
-    color: var(--text2);
-    line-height: 1.7;
-    margin-top: 1rem;
-  }
-
-  .about-right {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .about-statement {
-    display: grid;
-    grid-template-columns: 40px 1fr;
-    gap: 1.25rem;
-    padding: 1.75rem 0;
-    border-top: 1px solid var(--border);
-  }
-
-  .about-statement:last-child { border-bottom: 1px solid var(--border); }
-
-  .about-statement-num {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.875rem;
-    font-weight: 700;
-    color: var(--red);
-    letter-spacing: 0.1em;
-    padding-top: 3px;
-  }
-
-  .about-statement-title {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1.1rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--text);
-    margin-bottom: 0.5rem;
-  }
-
-  .about-statement-text {
-    font-size: 0.95rem;
-    color: var(--text2);
-    line-height: 1.7;
-  }
-
-  /* FRANCHISE */
-  .franchise-wrap {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-  }
-
-  .franchise-card {
-    background: var(--bg2);
-    border: 1px solid var(--border2);
-    border-radius: 6px;
-    padding: 1.75rem;
-  }
-
-  .franchise-card-label {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--red);
-    margin-bottom: 1.25rem;
-  }
-
-  .franchise-slot-list {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .franchise-slot {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 0.5rem 0.75rem;
-    border-radius: 3px;
-    border: 1px solid var(--border);
-  }
-
-  .franchise-slot.taken { background: var(--bg3); }
-  .franchise-slot.open  { background: transparent; border-style: dashed; }
-
-  .slot-tag {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.75rem;
-    font-weight: 800;
-    color: var(--text3);
-    min-width: 28px;
-  }
-
-  .slot-name {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--text2);
-    flex: 1;
-  }
-
-  .franchise-slot.open .slot-name { color: var(--text3); font-style: italic; }
-
-  .slot-status {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding: 0.2rem 0.5rem;
-    border-radius: 2px;
-  }
-
-  .status-taken { background: rgba(200,16,46,0.12); color: var(--red-light); }
-  .status-open  { background: rgba(74,222,128,0.1); color: #4ADE80; border: 1px solid rgba(74,222,128,0.2); }
-
 
 
   /* ── HAMBURGER & MOBILE NAV ── */
@@ -1186,9 +994,8 @@
     /* Rules grid */
     .rules-grid { grid-template-columns: 1fr; }
 
-    /* About split */
-    .about-split { grid-template-columns: 1fr; gap: 2rem; }
-    .about-headline { font-size: 2.2rem; }
+    /* About grid */
+    .about-grid { grid-template-columns: 1fr; }
 
     /* Franchise wrap */
     .franchise-wrap { grid-template-columns: 1fr; gap: 2rem; }
@@ -1210,6 +1017,32 @@
     .hero-title { font-size: clamp(2.4rem, 12vw, 3.5rem); }
     .hero-stat-num { font-size: 1.3rem; }
     .team-record { grid-template-columns: repeat(4, 1fr); }
+  }
+
+
+  /* DRAFT BANNER */
+  .draft-banner {
+    background: rgba(217,119,6,0.12);
+    border-bottom: 1px solid rgba(217,119,6,0.3);
+    padding: 0.6rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+    color: #FCD34D;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+
+  .draft-banner-icon {
+    font-size: 0.875rem;
+    flex-shrink: 0;
+  }
+
+  .draft-banner-text {
+    color: #FCD34D;
+    opacity: 0.9;
   }
 
 
@@ -1237,23 +1070,12 @@
   /* ACTIVE NAV CLASS */
   .nav-active { color: var(--text) !important; }
 
-</style>
-
-  <!-- Organization Schema -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SportsOrganization",
-    "name": "RedSec League",
-    "url": "https://www.playredsec.com",
-    "logo": "https://www.playredsec.com/og-image.jpg",
-    "description": "RedSec League is competitive Battlefield REDSEC. 25 squads. 8 Drops. One lobby.",
-    "sport": "Esports",
-    "sameAs": [
-      "https://discord.gg/2AYuV8aDt8"
-    ]
+  .table-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 4px;
   }
-  </script>
+</style>
 </head>
 <body>
 
@@ -1261,9 +1083,9 @@
 <nav>
   <a href="index.html" class="nav-logo">RED<span class="logo-sec">SEC</span> LEAGUE</a>
   <ul class="nav-links">
-    <li><a href="index.html" class="nav-active">Home</a></li>
+    <li><a href="index.html">Home</a></li>
     <li><a href="teams.html">Teams</a></li>
-    <li><a href="standings.html">Standings</a></li>
+    <li><a href="standings.html" class="nav-active">Standings</a></li>
     <li><a href="schedule.html">Schedule</a></li>
     <li><a href="rules.html">Rules</a></li>
     <li><a href="join.html" class="nav-join">Join</a></li>
@@ -1274,11 +1096,17 @@
   </button>
 </nav>
 
+<!-- DRAFT BANNER -->
+<div class="draft-banner">
+  <span class="draft-banner-icon">⚠</span>
+  <span class="draft-banner-text">Standings reflect placeholder data. Live standings will be updated after each Drop.</span>
+</div>
+
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
-  <a href="index.html" class="nav-active">Home</a>
+  <a href="index.html">Home</a>
   <a href="teams.html">Teams</a>
-  <a href="standings.html">Standings</a>
+  <a href="standings.html" class="nav-active">Standings</a>
   <a href="schedule.html">Schedule</a>
   <a href="rules.html">Rules</a>
   <a href="join.html" class="mob-join">Join the League</a>
@@ -1302,100 +1130,239 @@
   });
 </script>
 
-<!-- HERO -->
-<div id="home" style="position: relative; min-height: 92vh; display: flex; align-items: center; overflow: hidden; background: var(--bg);">
-  <div class="hero-eyebrow">Season 1 — Now Recruiting</div>
-  <div class="hero-grid-bg"></div>
-  <div class="hero-glow"></div>
-  <div class="hero-content">
-    <h1 class="hero-title">
-      RED<span class="line-red">SEC</span>
-      League
-    </h1>
-    <p class="hero-subtitle">Season 1 is recruiting now. 25 squads. 8 Drops. One champion.</p>
-    <div class="hero-actions">
-      <a href="#about" class="btn-primary">About the League</a>
-      <a href="schedule.html" class="btn-ghost">View Schedule</a>
-    </div>
-    <div class="hero-stats">
-      <div>
-        <div class="hero-stat-num">25</div>
-        <div class="hero-stat-label">Teams</div>
-      </div>
-      <div>
-        <div class="hero-stat-num">0 / 8</div>
-        <div class="hero-stat-label">Drops</div>
-      </div>
-      <div>
-        <div class="hero-stat-num">S1</div>
-        <div class="hero-stat-label">Current Season</div>
-      </div>
-      <div>
-        <div class="hero-stat-num">PC · PS · XB</div>
-        <div class="hero-stat-label">Platforms</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="section-divider"></div>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="about-split">
-    <div class="about-left">
-      <div class="section-label">About the League</div>
-      <h2 class="about-headline">This is RED<span style="color:var(--red);">SEC</span> LEAGUE.</h2>
-    </div>
-    <div class="about-right">
-      <div class="about-statement">
-        <div class="about-statement-num">01</div>
-        <div class="about-statement-body">
-          <div class="about-statement-title">For players who are done with random lobbies</div>
-          <p class="about-statement-text">You queue, you compete, nothing carries over. RedSec League changes that. Every Drop is tracked. Every kill counts toward your standing. Every week you show up against the same 24 squads who are just as serious as you are.</p>
-        </div>
-      </div>
-      <div class="about-statement">
-        <div class="about-statement-num">02</div>
-        <div class="about-statement-body">
-          <div class="about-statement-title">A real league. Not a Discord tournament</div>
-          <p class="about-statement-text">25 squads. Tracked standings. A fixed weekly schedule that doesn't move. Accountable leadership that keeps it running. This is organized competition built to last — not a one-off event that disappears after the weekend.</p>
-        </div>
-      </div>
-      <div class="about-statement">
-        <div class="about-statement-num">03</div>
-        <div class="about-statement-body">
-          <div class="about-statement-title">The community builds itself</div>
-          <p class="about-statement-text">By Drop 4 you will know who your rivals are. By the Final Drop you will have a history with them. That is what RedSec League is building — not just a season, but a competitive community with memory, identity and stakes that matter.</p>
-        </div>
-      </div>
-    </div>
+<!-- STANDINGS -->
+<section id="standings">
+  <div class="section-header">
+    <div class="section-label">Season 1</div>
+    <h2 class="section-title">Standings</h2>
   </div>
 
-  <div class="about-cta-bar">
-    <p class="about-cta-text">Season 1 is underway. 25 squads. 8 Drops. One champion.</p>
-    <div style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;">
-      <a href="teams.html" class="btn-primary">View Teams</a>
-      <a href="schedule.html" class="btn-ghost">See Schedule</a>
-      <a href="join.html" class="btn-ghost">Join the League</a>
-    </div>
-  </div>
+  <p style="font-size:0.8rem;color:var(--text3);margin-bottom:1.25rem;">Sorted by Total Points &nbsp;·&nbsp; Placement Pts + Kill Pts &nbsp;·&nbsp; All 25 teams per lobby</p>
+
+  <div class="table-scroll"><table class="standings-table">
+    <thead>
+      <tr>
+        <th style="width:48px;">#</th>
+        <th>Team</th>
+        
+        <th title="Placement Points">Plc Pts</th>
+        <th title="Kill Points">Kill Pts</th>
+        <th title="Total Points" style="color:var(--text);">Total Pts</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="rank-num rank-1">1</span></td>
+        <td><div class="standing-team"><div class="standing-badge tc-red">NYE</div><span class="standing-name" data-slug="teams/newyork_empire">New York Empire</span></div></td>
+        <td style="color:var(--text2);">—</td>
+        <td style="color:#4ADE80;">—</td>
+        <td style="color:var(--text);font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:700;">—</td>
+      </tr>      <tr>
+        <td><span class="rank-num rank-2">2</span></td>
+        <td><div class="standing-team"><div class="standing-badge tc-blue">LAF</div><span class="standing-name" data-slug="teams/losangeles_fault">Los Angeles Fault</span></div></td>
+        <td style="color:var(--text2);">—</td>
+        <td style="color:#4ADE80;">—</td>
+        <td style="color:var(--text);font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:700;">—</td>
+      </tr>      <tr>
+        <td><span class="rank-num rank-3">3</span></td>
+        <td><div class="standing-team"><div class="standing-badge tc-amber">COF</div><span class="standing-name" data-slug="teams/chicago_outfit">Chicago Outfit</span></div></td>
+        <td style="color:var(--text2);">—</td>
+        <td style="color:#4ADE80;">—</td>
+        <td style="color:var(--text);font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:700;">—</td>
+      </tr>      <tr>
+        <td><span class="rank-num ">4</span></td>
+        <td><div class="standing-team"><div class="standing-badge tc-green">HCM</div><span class="standing-name" data-slug="teams/houston_command">Houston Command</span></div></td>
+        <td style="color:var(--text2);">—</td>
+        <td style="color:#4ADE80;">—</td>
+        <td style="color:var(--text);font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:700;">—</td>
+      </tr>      <tr>
+        <td><span class="rank-num ">5</span></td>
+        <td><div class="standing-team"><div class="standing-badge tc-purple">ATT</div><span class="standing-name" data-slug="teams/atlanta_terminus">Atlanta Terminus</span></div></td>
+        <td style="color:var(--text2);">—</td>
+        <td style="color:#4ADE80;">—</td>
+        <td style="color:var(--text);font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:700;">—</td>
+      </tr>      <tr>
+        <td><span class="rank-num ">6</span></td>
+        <td><div class="standing-team"><div class="standing-badge tc-cyan">SSR</div><span class="standing-name" data-slug="teams/seattle_shroud">Seattle Shroud</span></div></td>
+        <td style="color:var(--text2);">—</td>
+        <td style="color:#4ADE80;">—</td>
+        <td style="color:var(--text);font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:700;">—</td>
+      </tr>      <tr>
+        <td><span class="rank-num ">7</span></td>
+        <td><div class="standing-team"><div class="standing-badge tc-red">DPG</div><span class="standing-name" data-slug="teams/dallas_pegasus">Dallas Pegasus</span></div></td>
+        <td style="color:var(--text2);">—</td>
+        <td style="color:#4ADE80;">—</td>
+        <td style="color:var(--text);font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:700;">—</td>
+      </tr>      <tr>
+        <td><span class="rank-num ">8</span></td>
+        <td><div class="standing-team"><div class="standing-badge tc-blue">MCR</div><span class="standing-name" data-slug="teams/miami_cipher">Miami Cipher</span></div></td>
+        <td style="color:var(--text2);">—</td>
+        <td style="color:#4ADE80;">—</td>
+        <td style="color:var(--text);font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:700;">—</td>
+      </tr>      <tr>
+        <td><span class="rank-num ">9</span></td>
+        <td><div class="standing-team"><div class="standing-badge tc-amber">DRP</div><span class="standing-name" data-slug="teams/denver_rampart">Denver Rampart</span></div></td>
+        <td style="color:var(--text2);">—</td>
+        <td style="color:#4ADE80;">—</td>
+        <td style="color:var(--text);font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:700;">—</td>
+      </tr>      <tr>
+        <td><span class="rank-num ">10</span></td>
+        <td><div class="standing-team"><div class="standing-badge tc-green">BIS</div><span class="standing-name" data-slug="teams/boston_ironsides">Boston Ironsides</span></div></td>
+        <td style="color:var(--text2);">—</td>
+        <td style="color:#4ADE80;">—</td>
+        <td style="color:var(--text);font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:700;">—</td>
+      </tr>      <tr>
+        <td><span class="rank-num ">11</span></td>
+        <td><div class="standing-team"><div class="standing-badge tc-purple">LVD</div><span class="standing-name" data-slug="teams/lasvegas_deadfall">Las Vegas Deadfall</span></div></td>
+        <td style="color:var(--text2);">—</td>
+        <td style="color:#4ADE80;">—</td>
+        <td style="color:var(--text);font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:700;">—</td>
+      </tr>      <tr>
+        <td><span class="rank-num ">12</span></td>
+        <td><div class="standing-team"><div class="standing-badge tc-cyan">SFP</div><span class="standing-name" data-slug="teams/sanfrancisco_presidio">San Francisco Presidio</span></div></td>
+        <td style="color:var(--text2);">—</td>
+        <td style="color:#4ADE80;">—</td>
+        <td style="color:var(--text);font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:700;">—</td>
+      </tr>      <tr>
+        <td><span class="rank-num ">13</span></td>
+        <td><div class="standing-team"><div class="standing-badge tc-red">DFG</div><span class="standing-name" data-slug="teams/detroit_forge">Detroit Forge</span></div></td>
+        <td style="color:var(--text2);">—</td>
+        <td style="color:#4ADE80;">—</td>
+        <td style="color:var(--text);font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:700;">—</td>
+      </tr>      <tr>
+        <td><span class="rank-num ">14</span></td>
+        <td><div class="standing-team"><div class="standing-badge tc-blue">NOR</div><span class="standing-name" data-slug="teams/neworleans_revenant">New Orleans Revenant</span></div></td>
+        <td style="color:var(--text2);">—</td>
+        <td style="color:#4ADE80;">—</td>
+        <td style="color:var(--text);font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:700;">—</td>
+      </tr>      <tr>
+        <td><span class="rank-num ">15</span></td>
+        <td><div class="standing-team"><div class="standing-badge tc-amber">PEM</div><span class="standing-name" data-slug="teams/phoenix_ember">Phoenix Ember</span></div></td>
+        <td style="color:var(--text2);">—</td>
+        <td style="color:#4ADE80;">—</td>
+        <td style="color:var(--text);font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:700;">—</td>
+      </tr>      <tr>
+        <td><span class="rank-num ">16</span></td>
+        <td><div class="standing-team"><div class="standing-badge tc-green">MSV</div><span class="standing-name" data-slug="teams/minneapolis_sovereign">Minneapolis Sovereign</span></div></td>
+        <td style="color:var(--text2);">—</td>
+        <td style="color:#4ADE80;">—</td>
+        <td style="color:var(--text);font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:700;">—</td>
+      </tr>      <tr>
+        <td><span class="rank-num ">17</span></td>
+        <td><div class="standing-team"><div class="standing-badge tc-purple">NDM</div><span class="standing-name" data-slug="teams/nashville_dominion">Nashville Dominion</span></div></td>
+        <td style="color:var(--text2);">—</td>
+        <td style="color:#4ADE80;">—</td>
+        <td style="color:var(--text);font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:700;">—</td>
+      </tr>      <tr>
+        <td><span class="rank-num ">18</span></td>
+        <td><div class="standing-team"><div class="standing-badge tc-cyan">BSN</div><span class="standing-name" data-slug="teams/baltimore_sentinel">Baltimore Sentinel</span></div></td>
+        <td style="color:var(--text2);">—</td>
+        <td style="color:#4ADE80;">—</td>
+        <td style="color:var(--text);font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:700;">—</td>
+      </tr>      <tr>
+        <td><span class="rank-num ">19</span></td>
+        <td><div class="standing-team"><div class="standing-badge tc-red">SDA</div><span class="standing-name" data-slug="teams/sandiego_abyss">San Diego Abyss</span></div></td>
+        <td style="color:var(--text2);">—</td>
+        <td style="color:#4ADE80;">—</td>
+        <td style="color:var(--text);font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:700;">—</td>
+      </tr>      <tr>
+        <td><span class="rank-num ">20</span></td>
+        <td><div class="standing-team"><div class="standing-badge tc-blue">WRD</div><span class="standing-name" data-slug="teams/washington_redacted">Washington Redacted</span></div></td>
+        <td style="color:var(--text2);">—</td>
+        <td style="color:#4ADE80;">—</td>
+        <td style="color:var(--text);font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:700;">—</td>
+      </tr>      <tr>
+        <td><span class="rank-num ">21</span></td>
+        <td><div class="standing-team"><div class="standing-badge tc-amber">TEX</div><span class="standing-name" data-slug="teams/toronto_exile">Toronto Exile</span></div></td>
+        <td style="color:var(--text2);">—</td>
+        <td style="color:#4ADE80;">—</td>
+        <td style="color:var(--text);font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:700;">—</td>
+      </tr>      <tr>
+        <td><span class="rank-num ">22</span></td>
+        <td><div class="standing-team"><div class="standing-badge tc-green">PLG</div><span class="standing-name" data-slug="teams/philadelphia_legion">Philadelphia Legion</span></div></td>
+        <td style="color:var(--text2);">—</td>
+        <td style="color:#4ADE80;">—</td>
+        <td style="color:var(--text);font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:700;">—</td>
+      </tr>      <tr>
+        <td><span class="rank-num ">23</span></td>
+        <td><div class="standing-team"><div class="standing-badge tc-purple">PCR</div><span class="standing-name" data-slug="teams/pittsburgh_crucible">Pittsburgh Crucible</span></div></td>
+        <td style="color:var(--text2);">—</td>
+        <td style="color:#4ADE80;">—</td>
+        <td style="color:var(--text);font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:700;">—</td>
+      </tr>      <tr>
+        <td><span class="rank-num ">24</span></td>
+        <td><div class="standing-team"><div class="standing-badge tc-cyan">SAV</div><span class="standing-name" data-slug="teams/sanantonio_vaquero">San Antonio Vaquero</span></div></td>
+        <td style="color:var(--text2);">—</td>
+        <td style="color:#4ADE80;">—</td>
+        <td style="color:var(--text);font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:700;">—</td>
+      </tr>      <tr>
+        <td><span class="rank-num ">25</span></td>
+        <td><div class="standing-team"><div class="standing-badge tc-red">MCM</div><span class="standing-name" data-slug="teams/mexicocity_muertos">Mexico City Muertos</span></div></td>
+        <td style="color:var(--text2);">—</td>
+        <td style="color:#4ADE80;">—</td>
+        <td style="color:var(--text);font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:700;">—</td>
+      </tr>
+    </tbody>
+  </table>
 </section>
-
 
 <!-- FOOTER -->
 <footer>
   <div class="footer-brand">RED<span class="logo-sec">SEC</span> LEAGUE &copy; 2026</div>
   <div class="footer-links">
-    <a href="index.html" class="nav-active">Home</a>
+    <a href="index.html">Home</a>
     <a href="teams.html">Teams</a>
-    <a href="standings.html">Standings</a>
+    <a href="standings.html" class="nav-active">Standings</a>
     <a href="schedule.html">Schedule</a>
     <a href="rules.html">Rules</a>
     <a href="join.html">Join</a>
   </div>
   <span style="font-size: 0.875rem; color: var(--text3);">RedSec League — Season 1</span>
 </footer>
+
+<script>
+  (function() {
+    const tbody = document.querySelector('.standings-table tbody');
+    if (!tbody) return;
+
+    const rows = Array.from(tbody.querySelectorAll('tr'));
+
+    rows.sort((a, b) => {
+      const getTotal = row => {
+        // Total Pts is the 6th td (index 5)
+        const cell = row.querySelectorAll('td')[5];
+        if (!cell) return -1;
+        const val = cell.textContent.trim();
+        return val === '—' || val === '' ? -1 : parseFloat(val) || -1;
+      };
+      return getTotal(b) - getTotal(a);
+    });
+
+    // Re-append in sorted order and update rank numbers
+    const rankClasses = ['rank-1', 'rank-2', 'rank-3'];
+    rows.forEach((row, i) => {
+      const rankSpan = row.querySelector('.rank-num');
+      if (rankSpan) {
+        rankSpan.textContent = i + 1;
+        rankSpan.className = 'rank-num' + (rankClasses[i] ? ' ' + rankClasses[i] : '');
+      }
+      tbody.appendChild(row);
+    });
+  })();
+</script>
+
+<script>
+  document.querySelectorAll('.standings-table tbody tr').forEach(row => {
+    const nameSpan = row.querySelector('.standing-name[data-slug]');
+    if (nameSpan) {
+      const slug = nameSpan.getAttribute('data-slug');
+      row.addEventListener('click', () => {
+        window.location.href = slug + '.html';
+      });
+    }
+  });
+</script>
 
 </body>
 </html>
